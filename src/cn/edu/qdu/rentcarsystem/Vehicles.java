@@ -5,15 +5,15 @@ public abstract class  Vehicles {
 	private String vehicleType;  //车型
 	private int dayRates;	//日租费
 	private String licensePlateNumber;	//车牌号
-	private boolean isRented=false; 	//是否也被租走
+	private boolean isRented=false; 	//是否已被租走
 	//static块
 	//初始化块
 	//构造方法
 	//方法
 	public abstract void showVehicleType(); //提供的车型
-	public abstract String rentVehicle(int days);	//出租车辆
+	public abstract String rentedVehicle(int days);	//出租车辆
 	
-	public void askChoice(){
+	public static void askChoice(){
 		System.out.println("******************");
 		System.out.println("***车辆租赁系统***");
 		System.out.println("******************");
@@ -22,6 +22,10 @@ public abstract class  Vehicles {
 		System.out.println("2.客车");
 	}
 
+	public static void askDays(){
+		System.out.println("请选择天数");
+	}
+	
 	public String getVehicleType() {
 		return vehicleType;
 	}

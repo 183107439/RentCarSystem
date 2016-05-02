@@ -7,33 +7,39 @@ public class Coaches extends Vehicles {
 	//static块
 	//初始化块
 	//构造方法
-	public Coaches(String vehicleType,int dayRates,String licensePlateNumber,int seatNumber){
+	public Coaches(String vehicleType,int seatNumber,int dayRates,String licensePlateNumber){
 		this.setVehicleType(vehicleType);
 		this.setDayRates(dayRates);
 		this.setLicensePlateNumber(licensePlateNumber);
 		this.seatNumber=seatNumber;
 	}
 	//方法
+	//方法--显示所有客车
 	@Override
 	public void showVehicleType() {
-		System.out.print(this.getVehicleType());
-		System.out.print(this.getDayRates());
-		System.out.println(this.seatNumber);
+		System.out.print(this.getVehicleType()+"\t");
+		System.out.print(this.seatNumber+"\t");
+		System.out.print(this.getDayRates()+"\t");
+		System.out.println(this.isRented());
 	}
-
-//	@Override
-//	public void askChoice() {
-//		// TODO Auto-generated method stub
-//		super.askChoice();
-//	}
-	
+	//方法--显示所租出客车信息
 	@Override
-	public String rentVehicle(int days) {
+	public String rentedVehicle(int days) {
+		System.out.println(">>租车成功");
 		System.out.println("您所租车辆信息如下：");
 		this.showVehicleType();
 		System.out.println("租车天数："+days);
-		System.out.println("租车费用："+(this.getDayRates()*days));
+		System.out.println("租车费用："+(this.getDayRates()*days));	
 		this.setRented(true);
 		return this.getLicensePlateNumber();
 	}
+	
+	public int getSeatNumber() {
+		return seatNumber;
+	}
+	
+	public void setSeatNumber(int seatNumber) {
+		this.seatNumber = seatNumber;
+	}
+	
 }
